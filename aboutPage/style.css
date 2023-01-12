@@ -1,0 +1,13 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:500");
+
+* {
+  background-color: #24252a;
+}
+
+.hero {
+  display: flex;
+  justify-content: center;
+  margin-top: 15rem;
+  font-size: 2rem;
+  color: antiquewhite;
+}
