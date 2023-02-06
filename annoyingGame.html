@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong"
+    />
+    <title>Annoying game</title>
+  </head>
+  <body>
+    <div id="gameContainer"></div>
+    <div id="infoPart">Prøv å få alle tallene til 0 ved å trykke på de</div>
+    <div id="evil">>:)</div>
+    <script>
+      //model
+
+      let knapp1 = 32;
+      let knapp2 = 45;
+      let knapp3 = 12;
+      let knapp4 = 34;
+      let knapp5 = 53;
+      let knapp6 = 32;
+      let knapp7 = 46;
+      let knapp8 = 24;
+      let knapp9 = 32;
+      let knapp10 = 24;
+
+      //view
+
+      updateView();
+      function updateView() {
+        let html = /*HTML*/ `
+        <button class="alleKnapper" onclick="addToBtnOne()">${knapp1}</button>
+        <button class="alleKnapper" onclick="addToAll()">${knapp2}</button>
+        <button class="alleKnapper" onclick="removeFromOne()">${knapp3}</button>
+        <button class="alleKnapper" onclick="addToBtnNine()">${knapp4}</button>
+        <button class="alleKnapper" onclick="removeFromSome()">${knapp5}</button>
+        <button class="alleKnapper" onclick="mixItUp()">${knapp6}</button>
+        <button class="alleKnapper" onclick="addToBtnSevenAndSix()">${knapp7}</button>
+        <button class="alleKnapper" onclick="addAndMix()">${knapp8}</button>
+        <button class="alleKnapper" onclick="addToBtnSeven()">${knapp9}</button>
+        <button class="alleKnapper" onclick="removeFromAll()">${knapp10}</button>
+        `;
+        document.getElementById("gameContainer").innerHTML = html;
+      }
+
+      //controller
+      function addToBtnOne() {
+        knapp1++;
+        updateView();
+      }
+      function addToBtnNine() {
+        knapp9++;
+        updateView();
+      }
+      function removeFromSome() {
+        knapp9-- | knapp3-- | knapp5--;
+        updateView();
+      }
+      function addToAll() {
+        knapp1++ |
+          knapp2++ |
+          knapp3++ |
+          knapp4++ |
+          knapp5++ |
+          knapp6++ |
+          knapp7++ |
+          knapp8++ |
+          knapp9++ |
+          knapp10++;
+        updateView();
+      }
+      function mixItUp() {
+        knapp1-- |
+          knapp2++ |
+          knapp3++ |
+          knapp4-- |
+          knapp5++ |
+          knapp6-- |
+          knapp7-- |
+          knapp8++ |
+          knapp9-- |
+          knapp10++;
+        updateView();
+      }
+      function removeFromOne() {
+        knapp1-- | knapp4-- | knapp7--;
+        updateView();
+      }
+      function addToBtnSevenAndSix() {
+        knapp7++ | knapp6++;
+        updateView();
+      }
+      function addToBtnSeven() {
+        knapp7++;
+        updateView();
+      }
+      function addAndMix() {
+        knapp4++ | knapp8-- | knapp9++ | knapp2--;
+        updateView();
+      }
+      function removeFromAll() {
+        knapp1-- |
+          knapp2-- |
+          knapp3-- |
+          knapp4-- |
+          knapp5-- |
+          knapp6-- |
+          knapp7-- |
+          knapp8-- |
+          knapp9-- |
+          knapp10--;
+        updateView();
+      }
+    </script>
+    <style>
+      .alleKnapper {
+        font-size: 1rem;
+        font-family: "Audiowide", sans-serif;
+        font-weight: bold;
+        margin: 5px;
+        width: 7vh;
+        height: 4vh;
+        margin-left: 20px;
+        margin-top: 20px;
+      }
+
+      #infoPart {
+        margin-top: 20px;
+        margin-left: 1.9vh;
+        font-size: 2.3rem;
+        font-weight: bold;
+        font-family: "Audiowide", sans-serif;
+      }
+
+      #evil {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-top: 20px;
+        margin-left: 50vh;
+      }
+    </style>
+  </body>
+</html>
